@@ -69,22 +69,26 @@ def _parse_xml(raw: bytes) -> dict:
 		# Fixed order matching what hamqsl provides
 		for band_name in ("80m-40m", "30m-20m", "17m-15m", "12m-10m"):
 			if band_name in bands_raw:
-				hf_conditions.append({
-					"band": band_name,
-					"day": bands_raw[band_name].get("day", ""),
-					"night": bands_raw[band_name].get("night", ""),
-				})
+				hf_conditions.append(
+					{
+						"band": band_name,
+						"day": bands_raw[band_name].get("day", ""),
+						"night": bands_raw[band_name].get("night", ""),
+					}
+				)
 
 	# VHF conditions: <calculatedvhfconditions><phenomenon name="..." location="...">value</phenomenon>
 	vhf_conditions = []
 	vhf = sd.find("calculatedvhfconditions")
 	if vhf is not None:
 		for ph in vhf.findall("phenomenon"):
-			vhf_conditions.append({
-				"name": ph.get("name", ""),
-				"location": ph.get("location", ""),
-				"value": ph.text.strip() if ph.text else "",
-			})
+			vhf_conditions.append(
+				{
+					"name": ph.get("name", ""),
+					"location": ph.get("location", ""),
+					"value": ph.text.strip() if ph.text else "",
+				}
+			)
 
 	# Try to parse update time
 	updated_str = text("updated")
@@ -102,17 +106,17 @@ def _parse_xml(raw: bytes) -> dict:
 		"aindex": intval("aindex"),
 		"kindex": intval("kindex"),
 		"kindex_text": text("kindexnt"),  # e.g. "Quiet", "Unsettled", "Storm"
-		"xray": text("xray"),             # e.g. "C1.1", "B5.2"
-		"bz": flt("magneticfield"),       # Bz component of IMF, nT
-		"solar_wind": flt("solarwind"),   # km/s
+		"xray": text("xray"),  # e.g. "C1.1", "B5.2"
+		"bz": flt("magneticfield"),  # Bz component of IMF, nT
+		"solar_wind": flt("solarwind"),  # km/s
 		"proton_flux": flt("protonflux"),
 		"electron_flux": flt("electonflux"),  # note: typo in hamqsl XML is intentional
-		"helium_line": flt("heliumline"),     # 304A helium line
+		"helium_line": flt("heliumline"),  # 304A helium line
 		"aurora": intval("aurora"),
 		"lat_degree": flt("latdegree"),
 		"geomag_field": text("geomagfield"),  # e.g. "QUIET", "UNSETTLD", "STORM"
 		"signal_noise": text("signalnoise"),  # e.g. "S0-S1", "S2-S3"
-		"muf": text("muf"),                   # Maximum Usable Frequency, or "No Report"
+		"muf": text("muf"),  # Maximum Usable Frequency, or "No Report"
 		# Page 2 - HF conditions
 		"hf_conditions": hf_conditions,
 		# Page 3 - VHF conditions
@@ -126,10 +130,7 @@ def get_data(force_refresh: bool = False) -> dict:
 
 	with _cache_lock:
 		now = datetime.utcnow()
-		cache_expired = (
-			_cache_time is None
-			or (now - _cache_time).total_seconds() > CACHE_TTL_SECONDS
-		)
+		cache_expired = _cache_time is None or (now - _cache_time).total_seconds() > CACHE_TTL_SECONDS
 		if force_refresh or cache_expired:
 			raw = _fetch_raw_xml()
 			_cache_data = _parse_xml(raw)
@@ -140,6 +141,7 @@ def get_data(force_refresh: bool = False) -> dict:
 
 def get_data_async(callback, error_callback=None):
 	"""Fetch data in a background thread. Calls callback(data) or error_callback(exc)."""
+
 	def _worker():
 		try:
 			data = get_data()

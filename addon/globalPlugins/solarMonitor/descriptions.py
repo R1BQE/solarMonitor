@@ -4,6 +4,7 @@
 from typing import Optional
 
 import addonHandler
+
 addonHandler.initTranslation()
 
 
@@ -11,7 +12,6 @@ addonHandler.initTranslation()
 # Value is the translatable description string.
 
 DESCRIPTIONS: dict[str, str] = {
-
 	"sfi": _(
 		# Translators: Description for the Solar Flux Index parameter
 		"Solar Flux Index at 10.7 cm wavelength. Reflects overall solar activity and ionospheric ionization. "
@@ -21,7 +21,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"150 to 200: high activity, 10 meters works well. "
 		"Above 200: solar maximum, F2 propagation on 6 meters is possible."
 	),
-
 	"sunspots": _(
 		# Translators: Description for the Sunspot Number parameter
 		"Wolf number - count of sunspots on the solar disk. "
@@ -31,7 +30,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"100 to 150: good activity, 15 and 10 meters work. "
 		"Above 150: high activity, solar maximum."
 	),
-
 	"aindex": _(
 		# Translators: Description for the A-index parameter
 		"Planetary geomagnetic activity index for the past 24 hours. Averaged measure of magnetic field disturbance. "
@@ -41,7 +39,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"30 to 49: strong storm, HF propagation seriously disrupted. "
 		"50 and above: extreme storm, communication on many bands impossible."
 	),
-
 	"kindex": _(
 		# Translators: Description for the K-index parameter
 		"Current geomagnetic activity index, updated every 3 hours. Scale from 0 to 9. "
@@ -52,7 +49,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"6 to 7: moderate storm, serious disruption on 80 and 160 meters and polar paths. "
 		"8 to 9: severe storm, HF communication nearly impossible."
 	),
-
 	"xray": _(
 		# Translators: Description for the X-ray flux parameter
 		"Solar X-ray flux level. "
@@ -63,7 +59,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"Class X: major flare, complete radio blackout on the sunlit side possible for several hours. "
 		"X5 and above: extreme flare, blackout lasting the entire daylight period."
 	),
-
 	"bz": _(
 		# Translators: Description for the Bz magnetic field component parameter
 		"Z-component of the interplanetary magnetic field in nanoteslas. "
@@ -74,7 +69,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"Below minus 20: extreme value, severe storm highly probable. "
 		"The longer the negative Bz persists, the stronger the storm."
 	),
-
 	"solar_wind": _(
 		# Translators: Description for the Solar Wind speed parameter
 		"Solar wind speed in km/s. "
@@ -84,7 +78,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"600 to 800: high speed, storm risk rises significantly with negative Bz. "
 		"Above 800: extremely high speed, sign of a coronal hole or CME impact, storm nearly certain with negative Bz."
 	),
-
 	"proton_flux": _(
 		# Translators: Description for the Proton Flux parameter
 		"High-energy proton flux from the Sun in particle flux units (pfu). "
@@ -94,7 +87,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"Above 100: strong event, polar cap absorption of HF signals, hazardous to satellites. "
 		"Above 1000: extreme event, complete HF absorption on transpolar paths for several days."
 	),
-
 	"electron_flux": _(
 		# Translators: Description for the Electron Flux parameter
 		"Relativistic electron flux in the Earth's magnetosphere in pfu. "
@@ -104,7 +96,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"Above 10000: extreme level, hazardous to satellite electronics. "
 		"Not directly critical for HF, but high values indicate increased auroral activity and degraded propagation on polar paths."
 	),
-
 	"helium_line": _(
 		# Translators: Description for the Helium Line 304A parameter
 		"Solar ultraviolet emission intensity in the ionized helium line at 304 angstroms, in arbitrary units. "
@@ -114,7 +105,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"Above 160: very high activity, correlates with SFI above 150. "
 		"Used together with SFI to refine propagation forecasts, especially for MUF calculations."
 	),
-
 	"aurora": _(
 		# Translators: Description for the Aurora index parameter
 		"Auroral activity index in arbitrary units. "
@@ -126,7 +116,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"At values of 6 and above, aurora scatter propagation on VHF is possible, "
 		"but HF propagation on polar paths degrades seriously."
 	),
-
 	"lat_degree": _(
 		# Translators: Description for the Latitude Degree parameter
 		"Geomagnetic latitude in degrees down to which auroral effects are currently present. "
@@ -136,7 +125,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"Below 60: strong storm, effects reach mid-latitudes. "
 		"Below 50: extreme storm, aurora visible across Europe down to Germany and below."
 	),
-
 	"geomag_field": _(
 		# Translators: Description for the Geomagnetic Field status parameter
 		"Current geomagnetic field status in plain text, based on K-index. "
@@ -147,7 +135,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"MAJOR STORM: K 6 to 7, serious HF disruption. "
 		"SEVERE STORM: K 8 to 9, communication on many bands impossible."
 	),
-
 	"signal_noise": _(
 		# Translators: Description for the Signal Noise level parameter
 		"Atmospheric and ionospheric noise level on HF bands on the S scale. "
@@ -157,7 +144,6 @@ DESCRIPTIONS: dict[str, str] = {
 		"S5 to S6: high noise, working weak stations is difficult. "
 		"S7 and above: heavy noise, only strong stations workable."
 	),
-
 	"muf": _(
 		# Translators: Description for the Maximum Usable Frequency parameter
 		"Maximum Usable Frequency - the highest frequency at which ionospheric reflection is possible on the current path. "

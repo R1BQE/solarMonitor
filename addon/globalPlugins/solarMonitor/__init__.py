@@ -1,17 +1,16 @@
 # Solar Monitor - NVDA global plugin
 # Author: r1bqe <r1bqe@mail.ru>
 
-import globalPluginHandler
-import ui
-import scriptHandler
-from scriptHandler import script
-import inputCore
-
 import addonHandler
+import globalPluginHandler
+import inputCore
+import ui
+from scriptHandler import script
+
 addonHandler.initTranslation()
 
-from . import data as solarData
-from . import descriptions as desc
+from . import data as solarData  # noqa: E402
+from . import descriptions as desc  # noqa: E402
 
 # Translators: Category shown in Input Gestures dialog
 ADDON_SUMMARY = _("Solar Monitor")
@@ -52,7 +51,11 @@ _PAGE_NAMES = [
 
 # Keys handled when monitor is active. All others pass through normally.
 _NAV_KEYS = {
-	"upArrow", "downArrow", "leftArrow", "rightArrow", "d",
+	"upArrow",
+	"downArrow",
+	"leftArrow",
+	"rightArrow",
+	"d",
 }
 
 
@@ -107,7 +110,6 @@ def _build_page3(d):
 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
-
 	scriptCategory = ADDON_SUMMARY
 
 	def __init__(self):
@@ -219,6 +221,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _on_data_loaded(self, d):
 		import wx
+
 		self._loading = False
 		self._pages = [_build_page1(d), _build_page2(d), _build_page3(d)]
 		self._page = 0
@@ -234,6 +237,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _on_data_error(self, exc):
 		import wx
+
 		self._loading = False
 		wx.CallAfter(
 			ui.message,
