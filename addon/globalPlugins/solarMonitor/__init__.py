@@ -7,11 +7,8 @@ import scriptHandler
 from scriptHandler import script
 import inputCore
 
-try:
-	from addonHandler import initTranslation
-	initTranslation()
-except ImportError:
-	pass
+import addonHandler
+addonHandler.initTranslation()
 
 from . import data as solarData
 from . import descriptions as desc

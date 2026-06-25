@@ -3,18 +3,8 @@
 
 from typing import Optional
 
-# NVDA add-ons use the standard gettext mechanism.
-# At runtime _ is provided by NVDA's addonHandler.
-# During scons pot generation the fake _ from buildVars is used.
-try:
-	from addonHandler import initTranslation
-	initTranslation()
-except ImportError:
-	pass
-
-
-def _(s: str) -> str:  # noqa: E302 - fallback for import-time use
-	return s
+import addonHandler
+addonHandler.initTranslation()
 
 
 # Each entry: key matches the data dict key from data.py
