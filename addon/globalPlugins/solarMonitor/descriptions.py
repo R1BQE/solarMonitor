@@ -190,19 +190,48 @@ HF_BAND_DESCRIPTIONS: dict[str, str] = {
 
 # VHF condition descriptions (page 3)
 VHF_DESCRIPTIONS: dict[str, str] = {
-	"Aurora": _(
-		# Translators: Description for Aurora VHF propagation
-		"Aurora scatter propagation. Signals reflect off the ionized curtain of the northern lights. "
+	# Keys are "name|location" matching what _build_page3 produces from XML
+	"vhf-aurora|Northern Hemisphere": _(
+		# Translators: Description for aurora scatter VHF propagation
+		"Aurora scatter propagation on VHF. Signals reflect off the ionized curtain of the northern lights. "
 		"Active when K-index is 5 or above. "
-		"Signals sound distorted and buzzy. Works mainly on 144 MHz and up. "
-		"Paths are oriented north-south toward the auroral zone."
+		"Paths are oriented along the meridian toward the auroral zone and back. "
+		"Signals sound distorted and buzzy with rapid fading. "
+		"Works mainly at 144 MHz and above. Path length is typically 500 to 2000 km. "
+		"When aurora is strong, HF propagation on high-latitude paths degrades at the same time."
 	),
-	"Sporadic E": _(
-		# Translators: Description for Sporadic E VHF propagation
-		"Sporadic E propagation. Sudden dense ionization patches in the E layer at 90 to 120 km altitude. "
-		"Can open VHF bands at 50, 70 and 144 MHz for short periods, sometimes with very strong signals. "
-		"Most common in Europe from May to August and December to January. "
-		"Unpredictable in timing and duration."
+	"E-Skip|Europe": _(
+		# Translators: Description for sporadic-E propagation over Europe on 2 meters
+		"Sporadic E propagation over Europe at 144 MHz (2 meters). "
+		"Sudden dense ionization patches in the E layer at 90 to 120 km altitude. "
+		"Opens 144 MHz for short periods from a few minutes to a few hours. "
+		"Signals are very strong, often S9 and above, with no warning. "
+		"Path length is typically 1000 to 2500 km. "
+		"Most common in Europe from May to August and in December and January."
+	),
+	"E-Skip|Europe 50MHz (6m)": _(
+		# Translators: Description for sporadic-E propagation over Europe on 6 meters
+		"Sporadic E propagation over Europe at 50 MHz (6 meters). "
+		"The most frequently opening VHF band via sporadic E. "
+		"Opens much more often than 144 MHz, with paths up to 3000 km. "
+		"An open 6 meter band is a sign that sporadic E on 144 MHz may also be possible. "
+		"Most common from May to August."
+	),
+	"E-Skip|Europe 70MHz (4m)": _(
+		# Translators: Description for sporadic-E propagation over Europe on 4 meters
+		"Sporadic E propagation over Europe at 70 MHz (4 meters). "
+		"Sits between 6 and 2 meters in terms of how often it opens. "
+		"Available only in some European countries including the UK. "
+		"Not used in Russia, but an open 4 meter band means the Es layer is dense enough "
+		"that 50 MHz and possibly 144 MHz may also be open."
+	),
+	"E-Skip|North America": _(
+		# Translators: Description for sporadic-E propagation over North America
+		"Sporadic E propagation over North America on VHF bands. "
+		"Shows Es layer activity above North America. "
+		"Not directly relevant for European operators, "
+		"but high sporadic E activity in both Europe and North America at the same time "
+		"indicates widespread global Es layer activity."
 	),
 }
 
@@ -217,11 +246,6 @@ def get_hf_description(band: str) -> Optional[str]:
 	return HF_BAND_DESCRIPTIONS.get(band)
 
 
-def get_vhf_description(phenomenon_name: str) -> Optional[str]:
-	"""Return the description for a given VHF phenomenon name, or None if not found."""
-	# phenomenon names from XML may be like "vhf_aurora", "vhf_sporadic_e"
-	# try direct match first, then normalize
-	if phenomenon_name in VHF_DESCRIPTIONS:
-		return VHF_DESCRIPTIONS[phenomenon_name]
-	normalized = phenomenon_name.replace("vhf_", "").replace("_", " ").title()
-	return VHF_DESCRIPTIONS.get(normalized)
+def get_vhf_description(key: str) -> Optional[str]:
+	"""Return the description for a given VHF key (name|location), or None if not found."""
+	return VHF_DESCRIPTIONS.get(key)

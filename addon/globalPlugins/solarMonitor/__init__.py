@@ -106,7 +106,8 @@ def _build_page3(d):
 		loc = ph.get("location", "")
 		val = _tr(_VHF_VALUE_MAP, ph.get("value", ""))
 		label = f"{name}, {loc}: {val}" if loc else f"{name}: {val}"
-		rows.append((label, name))
+		key = f"{name}|{loc}" if loc else name
+		rows.append((label, key))
 	return rows
 
 
