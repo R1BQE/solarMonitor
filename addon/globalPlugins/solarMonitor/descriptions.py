@@ -190,8 +190,10 @@ HF_BAND_DESCRIPTIONS: dict[str, str] = {
 
 # VHF condition descriptions (page 3)
 VHF_DESCRIPTIONS: dict[str, str] = {
-	# Keys are "name|location" matching what _build_page3 produces from XML
-	"vhf-aurora|Northern Hemisphere": _(
+	# Keys are "name|location" exactly as they appear in hamqsl XML attributes
+	# Real XML: name="vhf-aurora" location="northern_hemi"
+	#           name="E-Skip"     location="europe" / "north_america" / "europe_6m" / "europe_4m"
+	"vhf-aurora|northern_hemi": _(
 		# Translators: Description for aurora scatter VHF propagation
 		"Aurora scatter propagation on VHF. Signals reflect off the ionized curtain of the northern lights. "
 		"Active when K-index is 5 or above. "
@@ -200,7 +202,7 @@ VHF_DESCRIPTIONS: dict[str, str] = {
 		"Works mainly at 144 MHz and above. Path length is typically 500 to 2000 km. "
 		"When aurora is strong, HF propagation on high-latitude paths degrades at the same time."
 	),
-	"E-Skip|Europe": _(
+	"E-Skip|europe": _(
 		# Translators: Description for sporadic-E propagation over Europe on 2 meters
 		"Sporadic E propagation over Europe at 144 MHz (2 meters). "
 		"Sudden dense ionization patches in the E layer at 90 to 120 km altitude. "
@@ -209,7 +211,7 @@ VHF_DESCRIPTIONS: dict[str, str] = {
 		"Path length is typically 1000 to 2500 km. "
 		"Most common in Europe from May to August and in December and January."
 	),
-	"E-Skip|Europe 50MHz (6m)": _(
+	"E-Skip|europe_6m": _(
 		# Translators: Description for sporadic-E propagation over Europe on 6 meters
 		"Sporadic E propagation over Europe at 50 MHz (6 meters). "
 		"The most frequently opening VHF band via sporadic E. "
@@ -217,7 +219,7 @@ VHF_DESCRIPTIONS: dict[str, str] = {
 		"An open 6 meter band is a sign that sporadic E on 144 MHz may also be possible. "
 		"Most common from May to August."
 	),
-	"E-Skip|Europe 70MHz (4m)": _(
+	"E-Skip|europe_4m": _(
 		# Translators: Description for sporadic-E propagation over Europe on 4 meters
 		"Sporadic E propagation over Europe at 70 MHz (4 meters). "
 		"Sits between 6 and 2 meters in terms of how often it opens. "
@@ -225,7 +227,7 @@ VHF_DESCRIPTIONS: dict[str, str] = {
 		"Not used in Russia, but an open 4 meter band means the Es layer is dense enough "
 		"that 50 MHz and possibly 144 MHz may also be open."
 	),
-	"E-Skip|North America": _(
+	"E-Skip|north_america": _(
 		# Translators: Description for sporadic-E propagation over North America
 		"Sporadic E propagation over North America on VHF bands. "
 		"Shows Es layer activity above North America. "
