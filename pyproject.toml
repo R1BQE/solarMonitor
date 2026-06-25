@@ -3,11 +3,11 @@ requires = ["setuptools~=80.9", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "addonTemplate"
+name = "solarMonitor"
 dynamic = ["version"]
 description = "NVDA add-on template"
 maintainers = [
-	{name = "NV Access", email = "info@nvaccess.org"},
+	{name = "r1bqe", email = "r1bqe@mail.ru"},
 ]
 requires-python = ">=3.13,<3.14"
 classifiers = [

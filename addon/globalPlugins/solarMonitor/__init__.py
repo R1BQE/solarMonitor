@@ -4,6 +4,7 @@
 import addonHandler
 import globalPluginHandler
 import inputCore
+import speech
 import ui
 from scriptHandler import script
 
@@ -146,6 +147,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		return False  # block original action
 
 	def _handle_nav(self, key):
+		speech.cancelSpeech()
 		if key == "upArrow":
 			page = self._pages[self._page]
 			if page:
@@ -165,6 +167,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self._row = 0
 			ui.message(f"{_PAGE_NAMES[self._page]}. {self._row_text()}")
 		elif key == "d":
+			speech.cancelSpeech()
 			self._speak_desc()
 
 	def _row_text(self):
