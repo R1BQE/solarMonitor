@@ -13,7 +13,7 @@ addon_info = AddonInfo(
 	# Translators: Long description to be shown for this add-on on add-on information from add-on store
 	addon_description=_("""Solar activity monitor for radio amateurs.
 Provides quick access to solar indices, HF band conditions and VHF propagation via a virtual interface accessible with a screen reader."""),
-	addon_version="0.1",
+	addon_version="0.1.0",
 	# Translators: what's new content for the add-on version to be shown in the add-on store
 	addon_changelog=_("Initial release."),
 	addon_author="r1bqe <r1bqe@mail.ru>",

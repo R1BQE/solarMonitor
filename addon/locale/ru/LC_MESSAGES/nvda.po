@@ -357,3 +357,120 @@ msgstr ""
 "иногда с очень сильными сигналами. "
 "Наиболее часто в Европе с мая по август и с декабря по январь. "
 "Непредсказуем по времени и продолжительности."
+
+msgid "Solar Monitor. Loading data..."
+msgstr "Монитор солнечной активности. Загрузка данных..."
+
+msgid "Solar Monitor closed."
+msgstr "Монитор солнечной активности закрыт."
+
+msgid "No data"
+msgstr "Нет данных"
+
+msgid "No description available."
+msgstr "Описание недоступно."
+
+msgid "Solar Monitor: failed to load data. Check your internet connection."
+msgstr "Монитор солнечной активности: не удалось загрузить данные. Проверьте подключение к интернету."
+
+msgid "Ready. Updated: {updated}. {page}. {row}"
+msgstr "Готово. Обновлено: {updated}. {page}. {row}"
+
+msgid "Solar indices"
+msgstr "Солнечные индексы"
+
+msgid "HF band conditions"
+msgstr "Прохождение на КВ"
+
+msgid "VHF conditions"
+msgstr "УКВ условия"
+
+msgid "Sunspots"
+msgstr "Число Вольфа"
+
+msgid "A-index"
+msgstr "A-индекс"
+
+msgid "K-index"
+msgstr "K-индекс"
+
+msgid "X-ray"
+msgstr "Рентген"
+
+msgid "Magnetic field Bz"
+msgstr "Магнитное поле Bz"
+
+msgid "Solar wind"
+msgstr "Солнечный ветер"
+
+msgid "Proton flux"
+msgstr "Поток протонов"
+
+msgid "Electron flux"
+msgstr "Поток электронов"
+
+msgid "Helium line"
+msgstr "Линия гелия"
+
+msgid "Aurora"
+msgstr "Аврора"
+
+msgid "LatDegree"
+msgstr "Широта авроры"
+
+msgid "Geomag field"
+msgstr "Геомагнитное поле"
+
+msgid "Noise level"
+msgstr "Уровень шума"
+
+msgid "MUF"
+msgstr "МПЧ"
+
+msgid "day"
+msgstr "день"
+
+msgid "night"
+msgstr "ночь"
+
+msgid "Good"
+msgstr "Хорошо"
+
+msgid "Fair"
+msgstr "Средне"
+
+msgid "Poor"
+msgstr "Плохо"
+
+msgid "Closed"
+msgstr "Закрыт"
+
+msgid "Open"
+msgstr "Открыт"
+
+msgid "High MUF"
+msgstr "Высокая МПЧ"
+
+msgid "Quiet"
+msgstr "Спокойно"
+
+msgid "Unsettled"
+msgstr "Неустойчиво"
+
+msgid "Active"
+msgstr "Активно"
+
+msgid "Minor Storm"
+msgstr "Слабая буря"
+
+msgid "Major Storm"
+msgstr "Сильная буря"
+
+msgid "Severe Storm"
+msgstr "Экстремальная буря"
+
+msgid "Extreme Storm"
+msgstr "Сверхэкстремальная буря"
+
+msgid "Open or close the Solar Monitor virtual interface"
+msgstr "Открыть или закрыть виртуальный интерфейс монитора солнечной активности"
