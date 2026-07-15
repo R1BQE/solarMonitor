@@ -17,10 +17,10 @@ addon_info = AddonInfo(
 		"and VHF propagation via a virtual keyboard interface designed for screen readers. "
 		"No visual elements. Data from hamqsl.com."
 	),
-	addon_version="2025.6.29",
+	addon_version="2025.7.15",
 	# Translators: what's new content for the add-on version to be shown in the add-on store
 	addon_changelog=_(
-		"tested in NVDA 2026.1.1"
+		"Исправлены мелкие ошибки в коде и документации. Обновлена версия."
 	),
 	addon_author="r1bqe <r1bqe@mail.ru>",
 	addon_url="https://github.com/R1BQE/solarMonitor",
